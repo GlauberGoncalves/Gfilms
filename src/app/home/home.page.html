@@ -18,62 +18,13 @@
     <ion-item>
       <ion-label>Categoria</ion-label>
       <ion-select placeholder="Selecione uma">
-        <ion-select-option value="acao">ação</ion-select-option>
-        <ion-select-option value="comedia">Comedia</ion-select-option>
-        <ion-select-option value="comedia">Teror</ion-select-option>
-        <ion-select-option value="comedia">Romantico</ion-select-option>
+        <ion-select-option *ngFor="let categoria of categorias"  value="{{ categoria.id }}">{{ categoria.name }}</ion-select-option>        
       </ion-select>
     </ion-item>
   
   </ion-list>
 
-  <ion-grid>
-      <ion-row>
-        <ion-col>
-          <img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/CE92/production/_103928825_gettyimages-476383777.jpg" alt="">
-        </ion-col>
-
-        <ion-col>
-            <img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/CE92/production/_103928825_gettyimages-476383777.jpg" alt="">
-        </ion-col>
-
-        <ion-col>
-            <img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/CE92/production/_103928825_gettyimages-476383777.jpg" alt="">
-        </ion-col> 
-
-      </ion-row>
-
-      <ion-row>
-          <ion-col>
-            <img src="http://blogweddingbrasil.com.br/wp-content/uploads/2018/04/Imagem-da-semana.jpg" alt="">
-          </ion-col>
-  
-          <ion-col>
-              <img src="http://blogweddingbrasil.com.br/wp-content/uploads/2018/04/Imagem-da-semana.jpg" alt="">
-          </ion-col>
-  
-          <ion-col>
-              <img src="http://blogweddingbrasil.com.br/wp-content/uploads/2018/04/Imagem-da-semana.jpg" alt="">
-          </ion-col> 
-  
-        </ion-row>
-
-        <ion-row>
-            <ion-col>
-              <img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/CE92/production/_103928825_gettyimages-476383777.jpg" alt="">
-            </ion-col>
-    
-            <ion-col>
-                <img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/CE92/production/_103928825_gettyimages-476383777.jpg" alt="">
-            </ion-col>
-    
-            <ion-col>
-                <img src="https://ichef.bbci.co.uk/news/660/cpsprodpb/CE92/production/_103928825_gettyimages-476383777.jpg" alt="">
-            </ion-col> 
-    
-          </ion-row>    
-
-    </ion-grid>
-
+ 
+  <app-lista-filmes [filmes]="filmes"></app-lista-filmes>
 
 </ion-content>
