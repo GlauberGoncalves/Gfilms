@@ -1,0 +1,8 @@
+{
+  "name": "gfilms",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}
