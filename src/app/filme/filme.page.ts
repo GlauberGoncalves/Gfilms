@@ -17,7 +17,10 @@ export class FilmePage implements OnInit {
   idfilme = 299537;
   filme$: Observable<Object>;
   selectedId: number;
-  filme;
+  filmesSimilares: Object;
+  atores:Object[];
+  filme;  
+  listaAtoresComFoto = [];
 
   constructor(
     private filmesService: FilmesService,
@@ -31,17 +34,35 @@ export class FilmePage implements OnInit {
       switchMap(params => {
         // (+) before `params.get()` turns the string into a number
         this.selectedId = +params.get('id');
-        console.log(this.selectedId)
+        
+        this.filmesService.getSimilarMovies(this.selectedId)
+          .subscribe(filmesSimilares => {
+            this.filmesSimilares = filmesSimilares["results"];
+            // console.log(filmesSimilares["results"]);
+          })
+          
+        this.filmesService.getAtors(this.selectedId)
+          .subscribe(results => {
+            console.log(results);
+            this.atores = results["cast"];
+
+            
+            for(let ator=0; ator < this.atores.length; ator++){
+              if(this.atores[ator]["imagem_profile"] != "null"){
+                this.listaAtoresComFoto.push(this.atores[ator]);
+              }
+            }            
+            this.listaAtoresComFoto;
+            console.log(this.atores);
+          })
         return this.filmesService.getMovie(this.selectedId);
 
       })
     );    
 
 
-    this.filme$.subscribe(results => {
-      console.log(results);
+    this.filme$.subscribe(results => {      
       
-
       this.filme = {
               imagem: this.filmesService.imgPathApi + results["backdrop_path"],
               titulo: results["title"],
@@ -51,19 +72,5 @@ export class FilmePage implements OnInit {
               dataEstreia: results["release_date"]
             }      
     })
-
-    // this.filmesService.getMovie(this.idfilme)
-    //   .subscribe( results => {
-    //     // console.log(results);
-
-    //     this.filme = {
-    //       imagem: this.filmesService.imgPathApi + results["backdrop_path"],
-    //       titulo: results["title"],
-    //       subtitulo: results["tagline"],
-    //       resumo: results["overview"],
-    //       nota: results["vote_average"],
-    //       dataEstreia: results["release_date"]
-    //     }
-    //   })
   }
 }
