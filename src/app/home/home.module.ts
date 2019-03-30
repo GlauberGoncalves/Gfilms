@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
-import { ListaFilmesComponent } from '../shared/lista-filmes/lista-filmes.component';
+import { ListaFilmesComponent } from '../shared/components/lista-filmes/lista-filmes.component';
 
 @NgModule({
   imports: [
