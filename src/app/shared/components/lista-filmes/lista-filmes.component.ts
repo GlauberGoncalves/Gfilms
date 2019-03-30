@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { FilmesService } from 'src/app/providers/filmes.service';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-lista-filmes',
@@ -12,7 +14,10 @@ export class ListaFilmesComponent implements OnInit, OnChanges {
   @Input() filmes;
   public filmesMatriz = [];
 
-  constructor(private filmesService: FilmesService) { }
+  constructor(
+    private filmesService: FilmesService,
+    private router:Router,
+    private navCtrl:NavController) { }
 
 
   ngOnInit(): void {
@@ -37,6 +42,12 @@ export class ListaFilmesComponent implements OnInit, OnChanges {
       }
       this.filmesMatriz.push(lista);
     }
+  }
+
+  public goFilmePage(e: Event){
+        
+    let idFilme = e.srcElement.id;    
+    this.router.navigate(["filme", idFilme])
   }
 
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FilmesService } from '../providers/filmes.service';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +14,12 @@ export class HomePage implements OnInit {
   categorias = []
 
   constructor(
-    private filmesService:FilmesService
+    private filmesService:FilmesService,
+    private navCtrl:NavController
   ){}
   
-  ngOnInit(): void {
+  ngOnInit(): void {     
+
 
     // recupera lista de categorias
     this.filmesService.getGenereList()

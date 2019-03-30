@@ -1,7 +1,7 @@
 <ion-grid> 
   <ion-row *ngFor="let linha of filmesMatriz">
-    <ion-col size="4" *ngFor="let col of linha">
-      <img src="{{ filmesService.imgPathApi + col.poster_path }}" alt="">
+    <ion-col size="4" *ngFor="let filme of linha">      
+      <img src="{{ filmesService.imgPathApi + filme.poster_path }}" id="{{filme.id}}" (click)="goFilmePage($event)" alt=""/>
     </ion-col>      
   </ion-row>    
 </ion-grid>

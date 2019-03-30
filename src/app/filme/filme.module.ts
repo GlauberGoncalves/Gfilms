@@ -1,26 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
-import { HomePage } from './home.page';
+import { IonicModule } from '@ionic/angular';
+
+import { FilmePage } from './filme.page';
+import { ListaFilmesComponent } from '../shared/components/lista-filmes/lista-filmes.component';
 import { GbComponentsModule } from '../shared/components/components.module';
 
+const routes: Routes = [
+  {
+    path: '',
+    component: FilmePage
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomePage
-      }
-    ]),
+    RouterModule.forChild(routes),
     GbComponentsModule
   ],
-  declarations: [HomePage]
+  declarations: [FilmePage]
 })
-export class HomePageModule {}
+export class FilmePageModule {}

@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>Filme</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+
+  
+  <ion-card *ngIf="filme">
+    <ion-toolbar>
+      <ion-title>{{ filme.titulo }}</ion-title>
+    </ion-toolbar>
+    <img
+      src="{{ filme.imagem }}" alt="">
+      <span style="text-align:center;width: 100%;display: block;background-color: rgb(245, 245, 18);color:black;">{{filme.nota}}</span>
+    <ion-card-header>
+      
+      <ion-card-subtitle>{{ filme.subtitulo }}</ion-card-subtitle>
+      <ion-card-subtitle>Data Estreia {{ filme.dataEstreia }}</ion-card-subtitle>
+      
+    </ion-card-header>
+
+    <ion-card-content>
+      {{ filme.resumo }}
+    </ion-card-content>    
+
+    <ion-card-content>
+      <app-lista-filmes></app-lista-filmes>
+    </ion-card-content>    
+
+    
+
+  </ion-card>
+
+</ion-content>
