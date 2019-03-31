@@ -15,22 +15,19 @@
 <ion-content>
 
   <ion-list>
-    <!-- <ion-list-header>Categorias</ion-list-header> -->
-
     <ion-item>
-      
-        <ion-label>Categoria</ion-label>
-        <ion-select placeholder="Selecione uma" #inp (ionChange)="buscaPorCategoria(inp)">
-          <ion-select-option *ngFor="let categoria of categorias" value="{{ categoria.id }}">{{ categoria.name }}
-          </ion-select-option>
-        </ion-select>
-      
+      <ion-label>Categoria</ion-label>
+      <ion-select placeholder="Selecione uma" (ionChange)="buscaPorCategoria($event)">
+        <ion-select-option *ngFor="let categoria of categorias" value="{{ categoria.id }}">{{ categoria.name }}
+        </ion-select-option>
+      </ion-select>
     </ion-item>
-
   </ion-list>
 
 
-  <app-lista-filmes [filmes]="filmes"></app-lista-filmes>
+  <div *ngIf="filmes.length">
+    <app-lista-filmes [filmes]="filmes"></app-lista-filmes>
+  </div>
 
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando mais filmes...">

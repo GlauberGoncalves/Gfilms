@@ -38,12 +38,10 @@ export class FilmePage implements OnInit {
         this.filmesService.getSimilarMovies(this.selectedId)
           .subscribe(filmesSimilares => {
             this.filmesSimilares = filmesSimilares["results"];
-            // console.log(filmesSimilares["results"]);
           })
           
         this.filmesService.getAtors(this.selectedId)
           .subscribe(results => {
-            console.log(results);
             this.atores = results["cast"];
 
             
@@ -53,7 +51,6 @@ export class FilmePage implements OnInit {
               }
             }            
             this.listaAtoresComFoto;
-            console.log(this.atores);
           })
         return this.filmesService.getMovie(this.selectedId);
 

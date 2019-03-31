@@ -47,12 +47,11 @@ export class HomePage implements OnInit, OnChanges {
   }
 
   buscaPorCategoria(event){    
-
-
-    // this.filmesService.getMovieGenre(21)
-    //   .subscribe(res => {
-    //     this.filmes = res['results'];        
-    // });
+    this.filmes = [];
+    this.filmesService.getMovieGenre(event["detail"].value)
+      .subscribe(res => {
+        this.filmes = res['results'];        
+    });
     
   }
 }
