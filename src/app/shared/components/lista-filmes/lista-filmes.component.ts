@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FilmesService } from 'src/app/providers/filmes.service';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
@@ -13,6 +13,7 @@ export class ListaFilmesComponent implements OnInit, OnChanges {
 
   @Input() filmes;
   public filmesMatriz = [];
+  public filmesAux = [];
 
   constructor(
     private filmesService: FilmesService,
@@ -24,11 +25,13 @@ export class ListaFilmesComponent implements OnInit, OnChanges {
     
   }
 
-  ngOnChanges(): void {
+  ngOnChanges(changes: SimpleChanges): void {
     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
     //Add '${implements OnChanges}' to the class.
+    console.log(this.filmes);
 
-    console.log(this.filmes)
+    this.filmesMatriz = []
+    
     let divisao = this.filmes.length / 3;
 
     let filme = 0;
@@ -40,8 +43,9 @@ export class ListaFilmesComponent implements OnInit, OnChanges {
           filme++;
         }
       }
-      this.filmesMatriz.push(lista);
+      this.filmesAux.push(lista);
     }
+    this.filmesMatriz = this.filmesAux;
   }
 
   public goFilmePage(e: Event){

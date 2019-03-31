@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Qual filme procura?</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-toolbar>
+    <!-- Searchbar with a custom debounce -->
+    <ion-searchbar
+      animated
+      debounce="600"
+      placeholder
+      type="text"      
+      (ionChange)="pesquisar($event)">
+    </ion-searchbar>
+  </ion-toolbar>
+
+<div  *ngIf="filmes.length">
+  <app-lista-filmes [filmes]="filmes"></app-lista-filmes>
+</div>
+
+
+</ion-content>

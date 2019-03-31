@@ -11,7 +11,8 @@ const routes: Routes = [
     path: 'home',
     loadChildren: './home/home.module#HomePageModule'
   },
-  { path: 'filme/:id', loadChildren: './filme/filme.module#FilmePageModule' }
+  { path: 'filme/:id', loadChildren: './filme/filme.module#FilmePageModule' },  { path: 'pesquisa', loadChildren: './pesquisa/pesquisa.module#PesquisaPageModule' }
+
 
 ];
 
