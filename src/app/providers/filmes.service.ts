@@ -37,7 +37,7 @@ export class FilmesService {
     return this.http.get(this.baseApiKey + "/movie/top_rated?api_key=" + this.key +"&page="+ page +  "&language=" + this.languageDefault + "&sort_by=release_date.desc");
   }
 
-  getGenereList(page=1){
+  getGenereList(page){
     return this.http.get(this.baseApiKey + "/genre/movie/list?api_key=" + this.key +"&page="+ page +  "&language="+ this.languageDefault + "&sort_by=release_date.desc");
   }
 

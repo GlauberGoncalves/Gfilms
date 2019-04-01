@@ -24,14 +24,8 @@
     </ion-item>
   </ion-list>
 
-
   <div *ngIf="filmes.length">
     <app-lista-filmes [filmes]="filmes"></app-lista-filmes>
   </div>
-
-  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
-    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando mais filmes...">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
 
 </ion-content>

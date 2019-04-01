@@ -24,7 +24,7 @@ export class HomePage implements OnInit, OnChanges {
 
 
     // recupera lista de categorias
-    this.filmesService.getGenereList()
+    this.filmesService.getGenereList(1)
       .subscribe((categorias) => {
         this.categorias = categorias['genres'];        
       })
