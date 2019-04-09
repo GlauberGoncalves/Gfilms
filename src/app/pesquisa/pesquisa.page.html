@@ -12,6 +12,7 @@
   <ion-toolbar>
     <!-- Searchbar with a custom debounce -->
     <ion-searchbar
+      #input
       animated
       debounce="600"
       placeholder
@@ -20,9 +21,14 @@
     </ion-searchbar>
   </ion-toolbar>
 
-<div  *ngIf="filmes.length">
+<div *ngIf="filmes.length;else teste">
   <app-lista-filmes [filmes]="filmes"></app-lista-filmes>
 </div>
 
+  <ng-template #teste>
+    <ion-content>
+      <h6 style="text-align:center">Pesquise pelo nome do filme</h6>      
+    </ion-content>
+  </ng-template>
 
 </ion-content>
