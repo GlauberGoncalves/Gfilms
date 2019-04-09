@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class PesquisaPage implements OnInit {
 
-  @ViewChild('input') myInput
+  @ViewChild('input') myInput;
   public filmes = [];
 
   constructor(private filmesService:FilmesService, private router:Router) { }

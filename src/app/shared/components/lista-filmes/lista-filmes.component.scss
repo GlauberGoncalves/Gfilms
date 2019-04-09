@@ -1,4 +1,11 @@
 img{
-    // height: 150px;
+    height: 30vh;
     width: 100%;
+}
+
+ion-row,
+ion-col{
+    padding: 0;
+    margin: 0;
+    background-color: black;
 }
