@@ -5,12 +5,13 @@ import { switchMap } from 'rxjs/operators';
 
 import { FilmesService } from '../providers/filmes.service';
 import { NavController } from '@ionic/angular';
+import { FavoritosService } from '../favoritos/favoritos.service';
 
 @Component({
   selector: 'app-filme',
   templateUrl: './filme.page.html',
   styleUrls: ['./filme.page.scss'],
-  providers: [FilmesService]
+  providers: [FilmesService, FavoritosService]
 })
 export class FilmePage implements OnInit {
 
@@ -24,7 +25,8 @@ export class FilmePage implements OnInit {
 
   constructor(
     private filmesService: FilmesService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private favoritoService: FavoritosService
   ) { }
 
   ngOnInit() {
@@ -67,7 +69,10 @@ export class FilmePage implements OnInit {
               resumo: results["overview"],
               nota: results["vote_average"],
               dataEstreia: results["release_date"]
-            }      
+            }
+
+      this.favoritoService.salvar(results)
+            .then((res) => console.log(res));
     })
   }
 }

@@ -14,7 +14,12 @@ export class AppComponent {
       title: 'Home',
       url: '/home',
       icon: 'home'
-    }
+    },
+    {
+      title: 'Favoritos',
+      url: '/favoritos',
+      icon: 'heart'
+    },
   ];
 
   constructor(
