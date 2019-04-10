@@ -16,7 +16,7 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'Favoritos',
+      title: 'Filmes Favoritos',
       url: '/favoritos',
       icon: 'heart'
     },

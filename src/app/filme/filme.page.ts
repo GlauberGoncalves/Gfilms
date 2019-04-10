@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -22,6 +22,8 @@ export class FilmePage implements OnInit {
   atores:Object[];
   filme;  
   listaAtoresComFoto = [];
+  result;
+  btn:boolean = false;
 
   constructor(
     private filmesService: FilmesService,
@@ -71,8 +73,29 @@ export class FilmePage implements OnInit {
               dataEstreia: results["release_date"]
             }
 
-      this.favoritoService.salvar(results)
-            .then((res) => console.log(res));
+      this.result = results;
     })
+
+    this.favoritoService.buscaUm(this.selectedId)
+    .then( (res) => {
+      res ? this.btn = true : this.btn = false;
+    })
+
+  }
+
+  favoritarFilme(){
+
+    if(this.btn){
+      
+      this.favoritoService.remove(this.selectedId)
+      this.btn = false;
+
+    } else {
+
+      this.favoritoService.salvar(this.result)
+        .then(() => {
+          this.btn = true;
+        })
+    }
   }
 }

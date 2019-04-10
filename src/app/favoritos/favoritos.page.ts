@@ -14,7 +14,7 @@ export class FavoritosPage implements OnInit {
   constructor(
     private service: FavoritosService
   ) {
-    console.log(localStorage.getItem('db'))
+    console.log(localStorage.getItem('db'));
   }
 
   ngOnInit() {
