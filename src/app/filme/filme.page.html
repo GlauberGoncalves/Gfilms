@@ -31,7 +31,7 @@
     <ion-card-content>
       <ion-row>
         <ion-col size="4" *ngFor="let ator of listaAtoresComFoto">
-          <img src="{{ filmesService.imgPathApi + ator.profile_path }}" alt="">
+          <img src="{{ filmesService.imgPathApi + ator.profile_path }}" id="{{ ator.id }}" (click)="goAtorPage($event)" alt="">
           {{ator.name}} | {{ ator.chapter }}
         </ion-col>
       </ion-row>

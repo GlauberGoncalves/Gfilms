@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
@@ -28,7 +28,8 @@ export class FilmePage implements OnInit {
   constructor(
     private filmesService: FilmesService,
     private route: ActivatedRoute,
-    private favoritoService: FavoritosService
+    private favoritoService: FavoritosService,
+    private router:Router
   ) { }
 
   ngOnInit() {
@@ -98,4 +99,12 @@ export class FilmePage implements OnInit {
         })
     }
   }
+
+
+  goAtorPage(e: Event){    
+        
+    let idAtor = e.srcElement["id"];    
+    this.router.navigate(["ator-info", idAtor])
+  }
+  
 }

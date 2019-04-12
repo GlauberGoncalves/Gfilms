@@ -50,7 +50,7 @@ export class ListaFilmesComponent implements OnInit, OnChanges {
 
   public goFilmePage(e: Event){
         
-    let idFilme = e.srcElement.id;    
+    let idFilme = e.srcElement.["id"];    
     this.router.navigate(["filme", idFilme])
   }
 
