@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ator</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="ator && imagens">
+    <img src="{{ imagens.file_path ? filmesService.imgPathApi + imagens.file_path : '' }}" alt="">
+    <ion-card-header>
+      <ion-card-title>{{ ator.name }}</ion-card-title>
+      <ion-card-subtitle>{{ ator.birthday }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <h3 style="text-align:center">Filmes que ele(a) participou</h3>
+    <div *ngIf="filmes.length">
+      <app-lista-filmes [filmes]="filmes"></app-lista-filmes>
+    </div>
+
+    <h3 style="text-align:center">Biografia</h3>
+    <ion-card-content>
+      {{ ator.biography }}
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

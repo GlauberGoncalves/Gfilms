@@ -6,7 +6,9 @@ const routes: Routes = [
   { path: 'home',  loadChildren: './home/home.module#HomePageModule' },
   { path: 'filme/:id', loadChildren: './filme/filme.module#FilmePageModule' },
   { path: 'pesquisa', loadChildren: './pesquisa/pesquisa.module#PesquisaPageModule' },
-  { path: 'favoritos', loadChildren: './favoritos/favoritos.module#FavoritosPageModule' }  
+  { path: 'favoritos', loadChildren: './favoritos/favoritos.module#FavoritosPageModule' },
+  { path: 'ator-info/:id', loadChildren: './ator/ator-info/ator-info.module#AtorInfoPageModule' }
+ 
 
 ];
 

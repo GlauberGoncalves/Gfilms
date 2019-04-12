@@ -67,6 +67,22 @@ export class FilmesService {
     return this.http.get(this.baseApiKey + "/movie/" + id_filme + "/credits?api_key=" + this.key);    
   }
 
+  searchAtor(name){
+    return this.http.get(`${this.baseApiKey}/search/person?api_key=${this.key}&query=${name}`);
+  }
+
+  getMovieCredits(id_ator){    
+    return this.http.get(`${this.baseApiKey}/person/${id_ator}/movie_credits?api_key=${this.key}`);
+  }
+
+  getAtor(id_ator){    
+    return this.http.get(`${this.baseApiKey}/person/${id_ator}?api_key=${this.key}`);
+  }
+
+  getAtorImages(id_ator){
+    return this.http.get(`${this.baseApiKey}/person/${id_ator}/images?api_key=${this.key}`);
+  }
+
   /*
     metodos adicionais 
   */

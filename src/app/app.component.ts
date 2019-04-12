@@ -18,8 +18,8 @@ export class AppComponent {
     {
       title: 'Filmes Favoritos',
       url: '/favoritos',
-      icon: 'heart'
-    },
+      icon: 'videocam'
+    }
   ];
 
   constructor(
